@@ -1229,7 +1229,7 @@ const DECO_HTML = '<div class="deco"><span>{ }</span><span>&lt;/&gt;</span><span
 function shell(s, body){
   return `<div class="sl-inner">
     <header class="sh st">
-      ${s.strategy ? `<span class="chip"><b dir="ltr">//</b> ${s.strategy}</span>` : ''}
+      ${s.strategy ? `<span class="chip">${s.strategy}</span>` : ''}
       <h2>${s.title || ''}</h2>
     </header>
     <div class="sb">${body}</div>
@@ -1418,7 +1418,7 @@ RENDER.idea = (s, root) => {
     </div></div>${ex.flow ? flowHTML(ex.flow) : ''}` : '';
   root.innerHTML = `<div class="sl-inner idea-sl">
     <div class="id-main">
-      <span class="chip st"><b dir="ltr">//</b> ${s.chip || 'مفهوم جديد 💡'}</span>
+      <span class="chip st">${s.chip || 'مفهوم جديد 💡'}</span>
       <h1 class="id-term st">${s.term}</h1>
       <div class="id-box st">
         <p class="id-ask">${s.ask}</p>
@@ -1452,7 +1452,7 @@ RENDER.metro = (s, root) => {
   const vars = q => `--lc:${q.color};--tc:${tc(q.color)};--lt:${lt(q.color)}`;
   root.innerHTML = `<div class="metro">
     <div class="mt-sky" style="background-image:url('${IMG.skyline}')"></div>
-    <header class="mt-head st"><span class="chip"><b dir="ltr">//</b> ${s.chip}</span><h2>🚇 ${s.title}</h2></header>
+    <header class="mt-head st"><span class="chip">${s.chip}</span><h2>🚇 ${s.title}</h2></header>
     <div class="mt-map st"><div class="mt-line"></div>${Q.map((q, i) => `<div class="mt-st" style="${vars(q)}"><span class="mt-dot">${i + 1}</span><small>${q.station}</small></div>`).join('')}</div>
     <div class="mt-plat"></div>
     <div class="mt-train-wrap"><div class="mt-train">${Q.map((q, i) => `<button class="mt-car${i === 0 ? ' head' : ''}${i === Q.length - 1 ? ' tail' : ''}" style="${vars(q)}">
@@ -1569,7 +1569,7 @@ RENDER.metro = (s, root) => {
 RENDER.title = (s, root) => {
   root.innerHTML = `<div class="sl-inner title-sl">
     <div class="ttl-text">
-      <span class="chip st"><b dir="ltr">//</b> ${s.unit}</span>
+      <span class="chip st">${s.unit}</span>
       <h1 class="st">${s.title}</h1>
       <p class="ttl-sub st">${s.subtitle}</p>
       <div class="ttl-tags st">${(s.tags || []).map(t => `<span>${t}</span>`).join('')}</div>
@@ -1611,7 +1611,7 @@ RENDER.review = (s, root) => {
   ];
   root.innerHTML = `<div class="sl-inner review-sl">
     ${Q.map(q => `<span class="rq" style="left:${q[0]}%;top:${q[1]}%;font-size:${q[2]}px;color:var(--${q[3]});animation-delay:${q[4]}s">؟</span>`).join('')}
-    <span class="chip st"><b dir="ltr">//</b> ${s.chip}</span>
+    <span class="chip st">${s.chip}</span>
     <div class="rv-ic st"><span>❓</span></div>
     <h1 class="st">${s.title}</h1>
     <p class="rv-sub st">${s.subtitle}</p>
